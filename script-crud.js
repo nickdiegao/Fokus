@@ -3,6 +3,7 @@ let formularioTarefa = document.querySelector('.app__form-add-task')
 let textArea = document.querySelector('.app__form-textarea')   
 let ulTarefas = document.querySelector('.app__section-task-list')
 let cancelaTextArea = document.querySelector('.app__form-footer__button--cancel')
+let apagaTextArea = document.querySelector('.app__form-footer__button--delete')
 let descricaoTextArea = document.querySelector('.app__section-active-task-description')
 
 let removerConcluidas = document.querySelector('#btn-remover-concluidas')
@@ -15,6 +16,10 @@ let liTarefaSelecionada = null
 function atualizarTarefas() {
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) 
 }
+
+apagaTextArea.addEventListener('click',() => {
+    textArea.value = ''
+})
 
 cancelaTextArea.addEventListener('click', () => {
     textArea.value = '' //value pega o texto inserido na caixa  
