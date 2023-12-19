@@ -94,8 +94,13 @@ let contagemRegressiva = () => {
         botaoPause.innerHTML = 'Começar'
         beep.play()
         beep.volume = 0.3
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if (focoAtivo) {
+            const evento = new CustomEvent('focoFinalizado')
+            document.dispatchEvent(evento)
+        }
         zerar()
-        Swal.fire("Tempo esgotado!");
+        Swal.fire("Tempo finalizado!");
         return
     } 
     tempoDecorridoEmSegundos -= 1 
